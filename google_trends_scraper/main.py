@@ -1,50 +1,24 @@
-
-import pandas as pd
-
-from dataclasses import dataclass, field
 from pydantic_cli import run_and_exit
 
 from google_trends_scraper.models.input_arguments import InputArguments
-from google_trends_scraper.models.input import CSVInputFormat
 
-"""
-repeat in N hours
-for each keyword:  
-    scrape the api
-        get the api response
-        validate the api response
-    dump results to the local destination (think about output structure) 
-"""
+from google_trends_scraper.input_reader import InputReaderInterface
+from google_trends_scraper.output_writer import LocalDriver
 
-
-@dataclass
-class InputReader:
-    dataframe: CSVInputFormat = field(default=pd.DataFrame)
-    input_source_location: str = field(default=None)
-    set_input_file_column_name: str = 'KeyWords'
-    set_input_file_header_name: str = None
-
-    def read_csv(self):
-        """ Function which reads just csv file. """
-
-        input_csv_to_validate = pd.read_csv(self.input_source_location,
-                                            header=self.set_input_file_header_name,
-                                            names=[self.set_input_file_column_name])
-
-        self.dataframe = CSVInputFormat(dataframe=input_csv_to_validate)
-        return self
-
-
-@dataclass
-class GoogleTrendsInterface:
-    passs
+from google_trends_scraper.key_words_scraper import ScraperInterface
 
 
 def main(arguments: InputArguments) -> int:
     """ Main interface entrypoint. """
 
-    dataframe = InputReader(input_source_location=arguments.source_input_location).read_csv().dataframe
-    print(type(dataframe))
+    key_words = InputReaderInterface(input_source_location=arguments.source_input_location).read_csv().table.values
+    flat_key_words_list = [item for sublist in key_words for item in sublist]
+
+    scraper = ScraperInterface(arguments=arguments, key_words=flat_key_words_list).setup_connector()
+    interest_score_df = scraper.get_search_interest_score()
+
+    LocalDriver(arguments=arguments).write(material_to_write=interest_score_df)
+
     return 0
 
 

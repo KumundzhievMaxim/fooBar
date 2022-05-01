@@ -1,0 +1,10 @@
+"""
+selection_type:
+    keyword:
+        name
+        interest_score
+        interest_over_time
+        timestamp
+        status
+        error
+"""

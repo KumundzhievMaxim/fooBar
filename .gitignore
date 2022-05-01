@@ -1,6 +1,9 @@
 # description of the challenge kep private
 spiny-take-home-test-data-engineer.pdf
 
+# generated output
+data-material/output
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
