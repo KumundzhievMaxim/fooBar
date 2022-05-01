@@ -38,4 +38,6 @@ date,ncis,blue bloods,yellowstone,jeopardy,mark harmon,elvis presley,john wayne,
 1. Tests-tests-tests
 2. More involved investigations of PyTrends API and covering various response situations (lack of docs)
 3. Include more input/output data validations 
-4. Potential custom changes within output data format (see models.output) 
+4. Potential custom changes within output data format (see models.output)
+5. Employ any cron-wise worker to schedule spin up of the job
+   1. The input arguments are already supposed to get info from running system 
