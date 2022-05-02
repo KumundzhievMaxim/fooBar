@@ -1,7 +1,7 @@
 import pandas as pd
 
 from dataclasses import dataclass, field
-from google_trends_scraper.models.input import CSVInputFormat
+from models.input import CSVInputFormat
 
 
 @dataclass
