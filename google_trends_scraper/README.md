@@ -11,15 +11,15 @@ Current interface covers following aspects:
 
 ## Sample invocation
 ```bash
-$ python -m google_trends_scraper.main --input-path /../top-search-keywords.csv 
-                                       --output-path /../data-material/output/
-                                       --start-year 2022
-                                       --end-year 2022
-                                       --start-month 5
-                                       --end-month 5
-                                       --start-day 1
-                                       --end-day 1
-                                       --start-hour 0  
+$ python google_trends_scraper/executors/main.py   --input-path /../top-search-keywords.csv 
+                                                   --output-path /../data-material/output/
+                                                   --start-year 2022
+                                                   --end-year 2022
+                                                   --start-month 5
+                                                   --end-month 5
+                                                   --start-day 1
+                                                   --end-day 1
+                                                   --start-hour 0  
 ```
 
 ## Sample Output
