@@ -1,13 +1,12 @@
 # Google Trends Scraper
-The functionality represents the scraper job interface to interact with [Google Trends service](https://trends.google.com/trends/?geo=HU). 
-The job can be parametrized to be invoked each `N hours`. (by default - 4 hours).
+The puller job interface to fetch `search interest score` from [Google Trends service](https://trends.google.com/trends/?geo=HU) within multiple input query parameters. By default, the puller job will return `start-hour` + `4 hours` fixed-window information.
 
 # Description
-Current interface covers following aspects:
-1. Validation of input arguments
-2. Validation of input csv file (including emptiness of csv, etc)
-3. Abstraction on top of PyTrends API
-4. Writing results on local machine within LocalDriver interface  
+Current interface covers ~following aspects:
+  1. Validation of input arguments
+  2. Validation of input csv file (including emptiness of csv, etc)
+  3. Abstraction on top of PyTrends API consuming `search interest score` results
+  4. Writing results on local machine within LocalDriver interface
 
 ## Sample invocation
 ```bash
