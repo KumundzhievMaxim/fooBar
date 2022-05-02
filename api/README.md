@@ -7,7 +7,7 @@ The functionality represents the API interface to interact with [Google Trends s
 
 ## Spin up Local Server
 ```bash
-$ uvicorn main:app --reload 
+$ cd app && uvicorn main:app --reload 
 ```
 
 ## Sample API response
@@ -35,5 +35,21 @@ $ uvicorn main:app --reload
     ...
     }
 }
+```
+
+## Deployment
+Build puller container
+```bash
+$ docker build -t api .
+```
+
+Run puller container
+```bash
+$ docker run --name api-v1 -p 80:80 api 
+```
+
+Pull container to DockerHub
+```bash
+$ docker image push
 ```
 

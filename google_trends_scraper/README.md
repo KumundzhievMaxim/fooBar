@@ -33,11 +33,35 @@ date,ncis,blue bloods,yellowstone,jeopardy,mark harmon,elvis presley,john wayne,
 2022-05-01 04:00:00,22,9,60,14,2,28,59,3,6,2,21,7,60,25,68,33,11,11,13,10,1,3,4,23,3,92,2,2,10,5,0,1,22,67,10,2,7,40,0,2,2,4,0,16,3,82,12,45,49,0,34,1,52,63,11,2,0,10,69,15,6,4,55,4,13,87,4,8,0,2,3,0,0,6,61,8,98,37,2,65,14,43,1,0,1,0,1,0,9,0,7,2,2,3,3,24,0,75,1,2
 ```
 
+## Deployment
+Build puller container
+```bash
+$ docker build -t puller .
+```
 
-## Further Workaround
+Run puller container
+```bash
+$ docker run puller
+```
+
+Pull container to DockerHub
+```bash
+$ docker image push
+```
+
+## Further Workaround Deployment
+1. To run docker container:
+   1. decide where input data will stored 
+   2. decide where output data have to be written
+   3. for `both` above usual `mount` will work (meaning, just add mounting to either Dockerfile or to docker-compose)
+   4. decide on which ENV variables we expect from the user to match those with what main.py expects
+      1. declare those in Dockerfile (like: ENV start_year=$start_year)
+
+
+## Further Workaround in general
 1. Tests-tests-tests
 2. More involved investigations of PyTrends API and covering various response situations (lack of docs)
 3. Include more input/output data validations 
 4. Potential custom changes within output data format (see models.output)
 5. Employ any cron-wise worker to schedule spin up of the job
-   1. The input arguments are already supposed to get info from running system 
+   1. The input arguments are already supposed to get info from running system

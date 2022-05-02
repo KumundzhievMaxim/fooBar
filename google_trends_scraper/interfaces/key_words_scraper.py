@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 from more_itertools import chunked
 
 from pytrends.request import TrendReq
-from google_trends_scraper.models.input_arguments import InputArguments
+from models.input_arguments import InputArguments
 
 LOGGER = logging.getLogger(__doc__)
 logging.basicConfig(level=environ.get("LOGLEVEL", "INFO"))

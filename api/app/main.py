@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 
-from models.response import Response
-from utilities.google_trends_helper import pull_search_interest
+from app.models.response import Response
+from app.utilities.google_trends_helper import pull_search_interest
 
 
 app = FastAPI()
