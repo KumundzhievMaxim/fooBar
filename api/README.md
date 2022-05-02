@@ -1,9 +1,9 @@
 # API interface for getting normalized search interest
-The functionality represents the API interface to interact with [Google Trends service](https://trends.google.com/trends/?geo=HU). 
+The service stands for the API interface to interact with [Google Trends service](https://trends.google.com/trends/?geo=HU) and does not overlap with `google_trends_scraper` service. 
 
 # Description
-- The API holds 1 endpoint `/search_interest/{keyword}`
-- The API documentation `/docs`
+  - The API holds 1 endpoint `/search_interest/{keyword}`
+  - The API documentation `/docs`
 
 ## Spin up Local Server
 ```bash
